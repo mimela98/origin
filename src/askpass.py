@@ -8,11 +8,11 @@
 from sys import argv
 from os import environ
 
-if argv[1] == "Username for 'https://github.com': ":
+if argv[1].startswith("Username"):
     print (environ['GIT_USERNAME'])
     exit()
 
-if argv[1] == "Password for 'https://%(GIT_USERNAME)s@github.com': " % environ:
+if argv[1].startswith("Password"):
     print (environ['GIT_PASSWORD'])
     exit()
 
