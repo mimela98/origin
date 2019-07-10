@@ -8,7 +8,7 @@ class GitManager:
         def push(self, path):
                 repo = self.createOrGetRepository(self, path)
                 try:
-                        repo.git.add('*.*')
+                        repo.git.add('*')
                         repo.git.commit("-m test")
 
                 except GitCommandError as e:
