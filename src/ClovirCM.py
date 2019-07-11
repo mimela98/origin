@@ -1,6 +1,7 @@
 import git
 import pymysql
 import shutil
+import os
 import tensorflow as tf
 
 from os import environ
@@ -8,6 +9,8 @@ from os import environ
 from git.exc import GitCommandError
 
 def push(path):
+        os.system('git config -- global user.email "' + getEnv("GIT_USERNAME") + '@' + getEnv("GIT_USERNAME") + '.com"')
+        os.system('git config -- global user.name "' + getEnv("GIT_USERNAME"))
         repo = createOrGetRepository(path)
         try:
                 repo.git.add('*')
