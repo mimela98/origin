@@ -60,10 +60,10 @@ def simple_save(sess, inputs, outputs):
         path = getEnv("GIT_REPO_PATH")
         l = list(inputs.keys())
         try:
-            shutil.rmtree(path + '/model/' + getEnv("APP_VER"))
+            shutil.rmtree(path + "/" + getEnv("PRJ_ID") + '/model/' + getEnv("APP_VER"))
         except OSError:
             pass
-        tf.saved_model.simple_save(sess, path + "/model/" + getEnv("APP_VER"), inputs=inputs, outputs=outputs)
+        tf.saved_model.simple_save(sess, path + "/" + getEnv("PRJ_ID") + "/model/" + getEnv("APP_VER"), inputs=inputs, outputs=outputs)
         updateOrinsert(l)
         push(path)
 
