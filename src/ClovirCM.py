@@ -9,8 +9,8 @@ from os import environ
 from git.exc import GitCommandError
 
 def push(path):
-        os.system('git config -- global user.email "' + getEnv("GIT_USERNAME") + '@' + getEnv("GIT_USERNAME") + '.com"')
-        os.system('git config -- global user.name "' + getEnv("GIT_USERNAME"))
+        #os.system('git config -- global user.email "' + getEnv("GIT_USERNAME") + '@' + getEnv("GIT_USERNAME") + '.com"')
+        #os.system('git config -- global user.name "' + getEnv("GIT_USERNAME"))
         repo = createOrGetRepository(path)
         try:
                 repo.git.add('*')
@@ -29,7 +29,7 @@ def pull(path):
         origin.pull()
 
 def createOrGetRepository(path):
-        git.Repo.init(path)
+        #git.Repo.init(path)
         repo = git.Repo(path)
         try:
                 git.Remote.add(repo, "origin", getEnv("GIT_URL"))
